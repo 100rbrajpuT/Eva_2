@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #navbar{
+         text-align: right;
+     }
+     a{
+         font-size: 25px;
+         margin-right: 15px;
+     }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <a href="menu.html">Menu</a>
+        <a href="">SignUp</a>
+        <a href="">logIn</a>
+        <br><hr>
+
+    </div>
+    
+ Address:    <input id="address", type="text" >
+     <button onclick="foodOrder()">Order</button>
+</body>
+</html>
+<script>
+   setTimeout( function foodOrder(){
+        alert("Your Food order is Successfull");
+    },4000);
+    //let myPromise = new Promise(function (resolve,reject){
+      //  setTimeout(function foodOrder(){
+        //    resolve("Your Food order is Successfull");
+       // })
+        //reject("Your Order is Failed, Try It Again")
+    //},3000); 
+</script>

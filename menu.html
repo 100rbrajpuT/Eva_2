@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="menu.css">-->
+    <style>
+        #foodi{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+
+        }
+        #main{
+            width: 200px;
+            height: 50px;
+        }
+        button{
+            width: 50px;
+            height: 30px;
+        }
+        #navbar{
+         text-align: right;
+     }
+     a{
+         font-size: 25px;
+         margin-right: 15px;
+     }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <a href="menu.html">Menu</a>
+        <a href="">SignUp</a>
+        <a href="">logIn</a>
+        <br><hr>
+
+    </div>
+    <h2>Menu</h2>
+
+    <button id="main" onclick="getUsers()">LOOK FooDING ITEMs</button>
+    <div id="foodi"></div>
+    <hr>
+    
+      
+       
+    </form>
+</body>
+</html>
+<script>
+    let foodi_div = document.getElementById("foodi");
+    async function getUsers(){
+        try {
+            let res = await fetch("https://www.themealdb.com/api/json/v1/1/categories.php");
+            let data =  await res.json()
+             console.log(data.categories);
+            appendFood(data.categories);
+        }
+        catch(err){
+            console.log("ERROR HAi", err);
+        }
+    }
+let price = [458];
+var foods = {};
+
+    function appendFood(arr){
+        
+         arr.forEach(function(user){
+          
+             let div =  document.createElement("div");
+
+             let name = document.createElement("h3");
+            
+            name.innerText = user.strCategory;
+
+            let img = document.createElement("img");
+            img.src = user.strCategoryThumb;
+
+            let prices= document.createElement("h5");
+            prices.innerText = user.price;
+            
+            let button = document.createElement("button");
+            button.innerText = "Add to Cart";
+            button.style.height = "100px";
+            button.style.width ="100px";
+    
+            button.addEventListener('click',function(event){
+               console.log(name)
+                //console.log("good");
+
+            })
+           //button.setAttribute("placaholder","btn")
+           //button.addEventListener("click",cart)
+           
+
+            
+            div.append(img,name,price,button);
+            foodi_div.append(div);
+         })
+    }
+
+
+</script>
